@@ -1,5 +1,6 @@
 package com.klagarge.hangman;
 
+import android.text.Html;
 import android.util.Log;
 
 import java.text.Normalizer;
@@ -32,9 +33,9 @@ public class WordManager {
     /**
      * Check si la lettre en paramètre est dans le secretWord
      * Modifie le userWord pour afficher la lettre trouvé à tous les emplacements bon
-    * @param   letterToCheck   lettre à vérifier
-    * @return  Retourne true si la lettre est dans le mot
-    */
+     * @param letterToCheck lettre à vérifier
+     * @return Retourne true si la lettre est dans le mot
+     */
     boolean checkLetter(char letterToCheck){
         
         boolean letterPresent = false;
@@ -45,6 +46,20 @@ public class WordManager {
             }
         }
         return letterPresent;
+    }
+
+    public String correctWord(){
+        String s = "";
+        for (int i = 0; i < secretWord.length(); i++){
+            if('*' == secretWord.charAt(i)){
+                String first = userWord.substring(0, i);
+                String letter = "<font color='#EE0000'>" + secretWord.charAt(i) + "</font>";
+                String last = userWord.substring(i+1);
+                s = first + letter + last;
+                Log.i("debug", s);
+            }
+        }
+        return s;
     }
     /**
      * Check si le userWord = le secretWord
@@ -59,17 +74,6 @@ public class WordManager {
         return complete;
 
 
-    }
-
-    /**
-     * Afficher un message passé en paramètre et le mot qu'il fallait deviner
-     * @param msg Message à transmettre pour la défaitte.
-     */
-    void lost(String msg){
-        String s = msg;
-        s += "\n\nThe good word was: ";
-        s += secretWord;
-        //Dialogs.displayMessage(s);
     }
 
     /**
@@ -99,49 +103,20 @@ public class WordManager {
     public String randomWord(String level) {
         String s = "";
         String path = level.toLowerCase();
-        Log.i("debug", path);
+        //Log.i("debug", path);
         String[] word = loadList("assets/mots.csv"); // 331'782 mots
 
         if (path.length() != 0){
             String chemin = "assets/mots_" + path + ".csv";
             word = loadList(chemin);
-            Log.i("debug", chemin);
+            //Log.i("debug", chemin);
         }
 
         for (int i = 0; i < word.length; i++) {
-            Log.i("debug", word[i]);
+            //Log.i("debug", word[i]);
         }
 
-
-        /*
-        switch (level) {
-            case 'b':
-                word = loadList("words/mots_beginner.csv"); // 59 mots
-                break;
-
-            case 'e':
-                word = loadList("words/mots_easy.csv"); // 579 mots
-                break;
-
-            case 'm':
-                word = loadList("words/mots_medium.csv"); // 4'872 mots
-                break;
-                
-            case 'd':
-                word = loadList("words/mots_difficult.csv"); // 23'371 mots
-                break;
-
-            case 'h':
-                word = loadList("words/mots_hardcore.csv"); // 108'034 mots
-                break;
-
-            default:
-                break;
-        }
-
-         */
         s = word[(int)(Math.random()*word.length)];
-        System.out.println(s); // afficher le mot secret
         return s;
     }
 

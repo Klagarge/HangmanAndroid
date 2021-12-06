@@ -1,9 +1,7 @@
 package com.klagarge.hangman;
 
-import android.content.res.AssetManager;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
+import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -14,19 +12,14 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.logging.Level;
-
 public class MainActivity extends AppCompatActivity {
 
     private MyView drawingView;
     final int MAX_STEPS = 8;
     private WordManager word = new WordManager();
     public TextView userWord;
+    public TextView correctWord;
+    public Button BtnNewGame;
     public String radiovalue;
     public char[] letter;
 
@@ -49,20 +42,26 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (drawingView.state >= MAX_STEPS){
-            String msg = "";
-            msg += "Sorry, you have lost ;(";
-            msg += "\n";
-            msg += "The good word was: ";
-            msg += word.secretWord;
-            Toast faile = Toast.makeText(this, msg, Toast.LENGTH_LONG);
-            faile.setGravity(1, 0, 200);
+            Toast faile = Toast.makeText(this, "Sorry, you have lost ;(", Toast.LENGTH_LONG);
+            faile.setGravity(1, 0, 240);
             faile.show();
+
+            for (char i = 'a'; i <= 'z'; i++) {
+                String myLetter = "";
+                myLetter += i;
+                Button pbTMP = findViewById(getResources().getIdentifier(myLetter, "id", this.getPackageName()));
+                pbTMP.setEnabled(false);
+            }
+
+            correctWord.setText(word.secretWord);
+            correctWord.setVisibility(View.VISIBLE);
+
             continu();
         }
 
         if (word.isWordComplete()){
-            Toast win = Toast.makeText(this, "Congratulation, you win !!", Toast.LENGTH_LONG);
-            win.setGravity(1, 0, 200);
+            Toast win = Toast.makeText(this, "Congratulations, you have won !!", Toast.LENGTH_LONG);
+            win.setGravity(1, 0, 240);
             win.show();
             continu();
         }
@@ -80,16 +79,20 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout myLayout1 = findViewById(R.id.myView);
         myLayout1.addView(drawingView);
 
+        BtnNewGame = findViewById(R.id.btnNewGame);
+        BtnNewGame.setVisibility(View.GONE);
+
         userWord = findViewById(R.id.userWord);
         userWord.setText(word.userWord);
+        correctWord = findViewById(R.id.correctWord);
+        correctWord.setVisibility(View.INVISIBLE);
     }
 
     private void continu(){
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            public void run() {
-                setContentView(R.layout.menu);
-            }
-        }, 4000);
+        BtnNewGame.setVisibility(View.VISIBLE);
+    }
+
+    public void newGame(View v){
+        setContentView(R.layout.menu);
     }
 }
