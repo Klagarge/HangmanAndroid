@@ -1,5 +1,6 @@
 package com.klagarge.hangman;
 
+import android.text.style.BackgroundColorSpan;
 import android.util.Log;
 import android.view.View;
 import android.content.Context;
@@ -22,8 +23,9 @@ public class MyView extends View
     @Override
     protected void onDraw(Canvas canvas){
         float scale = 3.0F;
-        paint.setColor(Color.WHITE);
+        paint.setColor(Color.RED);
         paint.setStyle(Paint.Style.STROKE);
+        paint.setStrokeWidth(10);
 
         if (state > 0) {
             //jambes de la potence

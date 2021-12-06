@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RadioGroup
+        android:id="@+id/Language"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toTopOf="@+id/Level"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/french"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Français"
+            android:checked="true"/>
+
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/Level"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/beginner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Beginner" />
+
+        <RadioButton
+            android:id="@+id/easy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Easy" />
+
+        <RadioButton
+            android:id="@+id/medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Medium"
+            android:checked="true" />
+
+        <RadioButton
+            android:id="@+id/difficult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Difficult" />
+
+        <RadioButton
+            android:id="@+id/hardcore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hardcore" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/lauch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="lauch"
+        android:text="Lauch Game"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Level" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
