@@ -8,6 +8,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.Locale;
 // @Klagarge
 /**
  * Class pour la gestion de mots
@@ -19,13 +20,18 @@ public class WordManager {
     public String secretWord = "";
     public String userWord = "";
 
-    void askSecretWord(String path){
-        secretWord = randomWord(path);
-        secretWord = stripAccents(secretWord);
+    void askSecretWord(String language, String level){
+        secretWord = randomWord(language, level);
+        if(stripAccents(language.toLowerCase()).equals("francais")){
+            secretWord = stripAccents(secretWord);
+        }
+        //juste pour test
+        //secretWord = "zerreißen";
+        //juste pour test
         secretWord = secretWord.toLowerCase();
         userWord = "";
-
         for (int i = 0; i < secretWord.length(); i++) {
+            //Log.i("SecretWord", "" + secretWord.charAt(i));
             userWord += '*';
         }
         Log.i("SecretWord", secretWord);
@@ -48,19 +54,7 @@ public class WordManager {
         return letterPresent;
     }
 
-    public String correctWord(){
-        String s = "";
-        for (int i = 0; i < secretWord.length(); i++){
-            if('*' == secretWord.charAt(i)){
-                String first = userWord.substring(0, i);
-                String letter = "<font color='#EE0000'>" + secretWord.charAt(i) + "</font>";
-                String last = userWord.substring(i+1);
-                s = first + letter + last;
-                Log.i("debug", s);
-            }
-        }
-        return s;
-    }
+
     /**
      * Check si le userWord = le secretWord
      * @return true si les userWord et le secretWord sont strictement égaux
@@ -100,21 +94,12 @@ public class WordManager {
      * <p>Si pas de niveau choisit, choisit un mot aléatoirement parmi une liste de 331'782 mots
      * @return Retourne le mot généré aléatoirement selon la difficulté choisie
      */
-    public String randomWord(String level) {
+    public String randomWord(String language, String level) {
         String s = "";
-        String path = level.toLowerCase();
-        //Log.i("debug", path);
-        String[] word = loadList("assets/mots.csv"); // 331'782 mots
-
-        if (path.length() != 0){
-            String chemin = "assets/mots_" + path + ".csv";
-            word = loadList(chemin);
-            //Log.i("debug", chemin);
-        }
-
-        for (int i = 0; i < word.length; i++) {
-            //Log.i("debug", word[i]);
-        }
+        language = stripAccents(language.toLowerCase());
+        level = stripAccents(level.toLowerCase());
+        String chemin = "assets/" + language + "_" + level + ".csv";
+        String[] word = loadList(chemin);
 
         s = word[(int)(Math.random()*word.length)];
         return s;

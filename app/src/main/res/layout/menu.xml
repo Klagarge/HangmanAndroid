@@ -9,7 +9,7 @@
     <RadioGroup
         android:id="@+id/Language"
         android:layout_width="250dp"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/Level"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,8 +19,23 @@
             android:id="@+id/french"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Français"
-            android:checked="true"/>
+            android:checked="false"
+            android:onClick="readyToLauch"
+            android:text="Français" />
+
+        <RadioButton
+            android:id="@+id/english"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="readyToLauch"
+            android:text="English" />
+
+        <RadioButton
+            android:id="@+id/german"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="readyToLauch"
+            android:text="Deutsch" />
 
     </RadioGroup>
 
@@ -37,31 +52,35 @@
             android:id="@+id/beginner"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:onClick="readyToLauch"
             android:text="Beginner" />
 
         <RadioButton
             android:id="@+id/easy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="readyToLauch"
             android:text="Easy" />
 
         <RadioButton
             android:id="@+id/medium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Medium"
-            android:checked="true" />
+            android:onClick="readyToLauch"
+            android:text="Medium" />
 
         <RadioButton
             android:id="@+id/difficult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="readyToLauch"
             android:text="Difficult" />
 
         <RadioButton
             android:id="@+id/hardcore"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="readyToLauch"
             android:text="Hardcore" />
     </RadioGroup>
 
