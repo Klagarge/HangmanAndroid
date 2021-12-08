@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu);
-        findViewById(R.id.english).setVisibility(View.GONE);
+        //findViewById(R.id.english).setVisibility(View.GONE);
         //findViewById(R.id.german).setVisibility(View.GONE);
         BtnLaunch = findViewById(R.id.lauch);
         BtnLaunch.setVisibility(View.GONE);
@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void newGame(View v) {
         setContentView(R.layout.menu);
-        findViewById(R.id.english).setVisibility(View.GONE);
+        //findViewById(R.id.english).setVisibility(View.GONE);
         //findViewById(R.id.german).setVisibility(View.GONE);
         //findViewById(R.id.lauch).setVisibility(View.GONE);
         level = false;

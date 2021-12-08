@@ -6,7 +6,8 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.klagarge.hangman.MainActivity">
+    tools:context="com.klagarge.hangman.MainActivity"
+    android:screenOrientation = "portrait">
 
     <include
         layout="@layout/content_main"
