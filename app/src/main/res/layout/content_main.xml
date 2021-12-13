@@ -26,6 +26,17 @@
         app:layout_constraintStart_toStartOf="@+id/myView"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/TextScore"
+        android:layout_width="118dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:gravity="center"
+        android:text="Score"
+        app:layout_constraintBottom_toBottomOf="@+id/myView"
+        app:layout_constraintEnd_toEndOf="@+id/myView" />
+
     <LinearLayout
         android:id="@+id/myView"
         android:layout_width="match_parent"

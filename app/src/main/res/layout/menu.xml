@@ -17,25 +17,25 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <RadioButton
-            android:id="@+id/french"
+            android:id="@+id/fr0"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:checked="false"
-            android:onClick="readyToLauch"
+            android:onClick="readyToLaunch"
             android:text="Français" />
 
         <RadioButton
-            android:id="@+id/english"
+            android:id="@+id/en1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:onClick="readyToLauch"
+            android:onClick="readyToLaunch"
             android:text="English" />
 
         <RadioButton
-            android:id="@+id/german"
+            android:id="@+id/de2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:onClick="readyToLauch"
+            android:onClick="readyToLaunch"
             android:text="Deutsch" />
 
     </RadioGroup>
@@ -53,35 +53,35 @@
             android:id="@+id/beginner"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:onClick="readyToLauch"
+            android:onClick="readyToLaunch"
             android:text="Beginner" />
 
         <RadioButton
             android:id="@+id/easy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="readyToLauch"
+            android:onClick="readyToLaunch"
             android:text="Easy" />
 
         <RadioButton
             android:id="@+id/medium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="readyToLauch"
+            android:onClick="readyToLaunch"
             android:text="Medium" />
 
         <RadioButton
             android:id="@+id/difficult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="readyToLauch"
+            android:onClick="readyToLaunch"
             android:text="Difficult" />
 
         <RadioButton
             android:id="@+id/hardcore"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="readyToLauch"
+            android:onClick="readyToLaunch"
             android:text="Hardcore" />
     </RadioGroup>
 
@@ -89,11 +89,23 @@
         android:id="@+id/lauch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="lauch"
+        android:onClick="launch"
         android:text="Lauch Game"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Level" />
+
+    <Button
+        android:id="@+id/resetScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:onClick="reset"
+        android:text="Reset Score"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

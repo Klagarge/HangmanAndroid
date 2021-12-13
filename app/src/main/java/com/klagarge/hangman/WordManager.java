@@ -1,14 +1,11 @@
 package com.klagarge.hangman;
 
-import android.text.Html;
 import android.util.Log;
-
 import java.text.Normalizer;
 import java.io.*;
 import java.util.ArrayList;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import java.util.Locale;
 // @Klagarge
 /**
  * Class pour la gestion de mots
@@ -34,7 +31,7 @@ public class WordManager {
             //Log.i("SecretWord", "" + secretWord.charAt(i));
             userWord += '*';
         }
-        Log.i("SecretWord", secretWord);
+        Log.i("DebugHER", secretWord);
     }
     /**
      * Check si la lettre en paramètre est dans le secretWord
