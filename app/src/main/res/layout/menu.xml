@@ -5,40 +5,77 @@
     android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:screenOrientation = "portrait">
+    android:screenOrientation="portrait">
 
-    <RadioGroup
-        android:id="@+id/Language"
-        android:layout_width="250dp"
+    <LinearLayout
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/Level"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/Level"
+        app:layout_constraintStart_toStartOf="@+id/Level"
         app:layout_constraintTop_toTopOf="parent">
 
-        <RadioButton
-            android:id="@+id/fr0"
+        <RadioGroup
+            android:id="@+id/Language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/french"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:checked="false"
+                android:onClick="readyToLaunch"
+                android:text="Français" />
+
+            <RadioButton
+                android:id="@+id/english"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:onClick="readyToLaunch"
+                android:text="English" />
+
+            <RadioButton
+                android:id="@+id/deutsch"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:onClick="readyToLaunch"
+                android:text="Deutsch" />
+
+        </RadioGroup>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:checked="false"
-            android:onClick="readyToLaunch"
-            android:text="Français" />
+            android:orientation="vertical">
 
-        <RadioButton
-            android:id="@+id/en1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:onClick="readyToLaunch"
-            android:text="English" />
+            <TextView
+                android:id="@+id/frenchScore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left|center_vertical"
+                android:text="score" />
 
-        <RadioButton
-            android:id="@+id/de2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:onClick="readyToLaunch"
-            android:text="Deutsch" />
+            <TextView
+                android:id="@+id/englishScore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left|center_vertical"
+                android:text="Score" />
 
-    </RadioGroup>
+            <TextView
+                android:id="@+id/deutschScore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left|center_vertical"
+                android:text="Score" />
+        </LinearLayout>
+
+    </LinearLayout>
 
     <RadioGroup
         android:id="@+id/Level"
@@ -107,5 +144,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/powered"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Powered by Team DickClock"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

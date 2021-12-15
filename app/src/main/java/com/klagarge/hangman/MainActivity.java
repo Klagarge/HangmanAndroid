@@ -21,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
     public TextView userWord;
     public TextView correctWord;
     public TextView TextScore;
+    public TextView frenchScore;
+    public TextView englishScore;
+    public TextView deutschScore;
     public Button BtnNewGame;
     public Button BtnLaunch;
     private RadioGroup languageGroup;
@@ -60,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
         settings = getSharedPreferences("score", 0);
         editor = settings.edit();
         scores = new Scores(languageGroup.getChildCount());
+        score();
     }
 
     public void update(View v) {
@@ -146,6 +150,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void newGame(View v) {
         setContentView(R.layout.menu);
+        score();
         findViewById(R.id.resetScore).setBackgroundColor(Color.GRAY);
         //findViewById(R.id.launch).setVisibility(View.GONE);
         level = false;
@@ -194,5 +199,15 @@ public class MainActivity extends AppCompatActivity {
         if (language && level) {
             findViewById(R.id.lauch).setVisibility(View.VISIBLE);
         }
+    }
+
+    private void score() {
+        frenchScore = findViewById(R.id.frenchScore);
+        englishScore = findViewById(R.id.englishScore);
+        deutschScore = findViewById(R.id.deutschScore);
+
+        frenchScore.setText(scores.toString("francais"));
+        englishScore.setText(scores.toString("english"));
+        deutschScore.setText(scores.toString("deutsch"));
     }
 }
