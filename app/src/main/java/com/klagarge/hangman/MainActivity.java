@@ -3,6 +3,7 @@ package com.klagarge.hangman;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -71,6 +72,8 @@ public class MainActivity extends AppCompatActivity {
         letter = btn.getText().toString().toLowerCase().toCharArray();
         btn.setEnabled(false);
 
+        drawingView.maxWidth = findViewById(R.id.myView).getWidth();
+
         if(word.checkLetter(letter[0])){
             userWord.setText(word.userWord);
         } else {
@@ -109,7 +112,9 @@ public class MainActivity extends AppCompatActivity {
             endGame();
         }
 
+        Log.i("DebugHER", "" + drawingView.maxWidth + " - " + drawingView.maxHeight);
         drawingView.invalidate();
+        Log.i("DebugHER", "" + drawingView.maxWidth + " - " + drawingView.maxHeight);
     }
 
     public void launch(View v) {
@@ -122,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
         drawingView = new MyView(this);
         LinearLayout myLayout1 = findViewById(R.id.myView);
         myLayout1.addView(drawingView);
+
 
         BtnNewGame = findViewById(R.id.btnNewGame);
         BtnNewGame.setVisibility(View.GONE);
@@ -138,6 +144,12 @@ public class MainActivity extends AppCompatActivity {
         TextScore = findViewById(R.id.TextScore);
 
         TextScore.setText(scores.toString(radioLanguage));
+
+        drawingView.maxWidth = myLayout1.getWidth();
+        drawingView.maxHeight = myLayout1.getHeight();
+        Log.i("DebugHER", "" + drawingView.maxWidth + " - " + drawingView.maxHeight);
+        drawingView.invalidate();
+        Log.i("DebugHER", "" + drawingView.maxWidth + " - " + drawingView.maxHeight);
     }
 
     private void endGame() {
@@ -183,8 +195,9 @@ public class MainActivity extends AppCompatActivity {
                 Toast reset = Toast.makeText(this, "All scores have been reset !", Toast.LENGTH_LONG);
                 reset.setGravity(1, 0, 500);
                 reset.show();
-
+                score();
         }
+
     }
 
     public void readyToLaunch(View v) {

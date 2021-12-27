@@ -1,18 +1,16 @@
 package com.klagarge.hangman;
 
-import android.text.style.BackgroundColorSpan;
-import android.util.Log;
-import android.view.View;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.Rect;
-import android.graphics.RectF;
+import android.view.View;
 
-public class MyView extends View
-{
+public class MyView extends View {
+
+    public int maxWidth;
+    int maxHeight;
+
     Paint paint = new Paint(Paint.LINEAR_TEXT_FLAG);
     public int state = 0;
 
@@ -26,6 +24,7 @@ public class MyView extends View
         paint.setColor(Color.RED);
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(10);
+
 
         if (state > 0) {
             //jambes de la potence

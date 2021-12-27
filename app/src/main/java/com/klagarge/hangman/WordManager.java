@@ -28,8 +28,36 @@ public class WordManager {
         secretWord = secretWord.toLowerCase();
         userWord = "";
         for (int i = 0; i < secretWord.length(); i++) {
-            //Log.i("SecretWord", "" + secretWord.charAt(i));
-            userWord += '*';
+            switch (secretWord.charAt(i)){
+                case ' ':
+                    userWord += ' ';
+                    break;
+                case '\'':
+                    userWord += '\'';
+                    break;
+                case ',':
+                    userWord += ',';
+                    break;
+                case '/':
+                    userWord += '/';
+                    break;
+                case '-':
+                    userWord += '-';
+                    break;
+                case '(':
+                    userWord += '(';
+                    break;
+                case ')':
+                    userWord += ')';
+                    break;
+                case '.':
+                    userWord += '.';
+                    break;
+                default:
+                    userWord += '*';
+                    break;
+
+            }
         }
         Log.i("DebugHER", secretWord);
     }
